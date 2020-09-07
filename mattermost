@@ -1,1 +1,29 @@
+wget https://releases.mattermost.com/X.X.X/mattermost-X.X.X-linux-amd64.tar.gz
+tar -xvzf *.gz
 
+sudo useradd --system --user-group mattermost
+chown -R mattermost:mattermost /opt/mattermost
+sudo chmod -R g+w /opt/mattermost
+
+nano /opt/mattermost/config/config.json
+
+/etc/systemd/system/mattermost.service
+
+[Unit]
+Description=Mattermost
+After=syslog.target network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/mattermost/bin
+User=mattermost
+ExecStart=/opt/mattermost/bin/platform
+PIDFile=/var/spool/mattermost/pid/master.pid
+
+[Install]
+WantedBy=multi-user.target
+
+systemctl daemon-reload
+systemctl start mattermost.service
+systemctl enable mattermost.service
+systemctl enable mattermost.service
