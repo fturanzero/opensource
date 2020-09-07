@@ -1,1 +1,15 @@
+yum -y install postgresql-server postgresql-contrib
+postgresql-setup initdb
+systemctl start postgresql
+systemctl enable postgresql
+systemctl status postgresql
 
+sudo -i -u postgres
+psql
+
+CREATE DATABASE mattermost;
+CREATE USER mmuser WITH PASSWORD 'DBAss47slX3';
+GRANT ALL PRIVILEGES ON DATABASE mattermost to mmuser;
+
+/var/lib/pgsql/data/pg_hba.conf
+systemctl restart postgresql
