@@ -1,3 +1,5 @@
 yum -y install epel-release && yum update
 yum -y install nginx
 cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
+
+nginx -t
