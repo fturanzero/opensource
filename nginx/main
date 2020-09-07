@@ -3,3 +3,4 @@ yum -y install nginx
 cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
 
 nginx -t
+systemctl start nginx
