@@ -1,0 +1,7 @@
+from node:10
+workdir /home/node/app
+copy app /home/node/app
+run npm install
+cmd npm run app
+expose 9999
+
