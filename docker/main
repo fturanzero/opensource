@@ -1,2 +1,5 @@
 docker build -t nodeapp .
+
 docker stop nodeapp
+docker rm nodeapp
+
