@@ -1,1 +1,8 @@
+select * from shell_history where uid = 1001;
+select * from dns_resolvers;
+select * from routes;
+select * from arp_cache;
+select * from etc_hosts;
+select * from interface_addresses;
+
 
