@@ -5,4 +5,9 @@ select * from arp_cache;
 select * from etc_hosts;
 select * from interface_addresses;
 
-
+select name, cmdline from processes where name='ssh';
+select name,path,uid,on_disk from processes where on_disk=0;
+select a.name,a.parent,a.state,b.path from processes as a join processes as b where a.parent=b.pid and a.state='Z'
+select name,uid,euid from processes  where euid=0 and uid != 0;
+select name,path,disk_bytes_written from processes where disk_bytes_written > 0
+select name,nice from processes order by nice desc;
