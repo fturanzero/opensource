@@ -1,0 +1,20 @@
+tshark -r HTTP_traffic.pcap -Y "http.request.method==GET" -Tfields -e frame.time -eip.src -e http.request.full_uri
+tshark -r HTTPS_traffic.pcap -Y 'ssl.handshake' -T fields -e ip.src -e ip.dst
+tshark -r HTTPS_traffic.pcap -Y 'ssl.handshake.certificate' -T fields -e x509sat.printableString
+
+tshark -r WiFi_traffic.pcap -Y "wlan.fc.type_subtype==0x000c"
+tshark -r WiFi_traffic.pcap -Y "wlan.fc.type_subtype==8" -Tfields -e wlan.ssid -ewlan.bssid
+tshark -r WiFi_traffic.pcap -Y "wlan.ssid==LazyArtists" -T fields -e wlan.bssid
+tshark -r WiFi_traffic.pcap -Y "wlan.fc.type_subtype==0x000c" -Tfields -e wlan.ra
+tshark -r WiFi_traffic.pcap -Y "wlan.ta==5c:51:88:31:a0:3b && http" -Tfields -ehttp.user_agent
+
+tshark -r VoIP_traffic.pcap -Y "sip.Method==REGISTER" -Tfields -e ip.src -esip.from.user -e sip.auth.digest.response
+tshark -r VoIP_traffic.pcap -Y "sip.Method == MESSAGE" -V
+tshark -r VoIP_traffic.pcap -Y "sip.Method==BYE" -Tfields -e sip.from.user -esip.to.user
+
+tshark -r HTTP_traffic.pcap -2 -R 'http' -c 10
+tshark -r First10.pcap -T pdml > http.xml
+xsltproc /usr/share/wireshark/pdml2html.xsl http.xml > http.html
+
+tshark -r WiFi_traffic.pcap -Y 'wlan.fc.type_subtype == 0x0008 && !(wlan.tag.length==0)' -T fields -e wlan.ssid | sort -u
+tshark -r HTTP_traffic.pcap -Y 'http.response.code==200'
