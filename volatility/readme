@@ -1,0 +1,35 @@
+vol.py --info
+vol.py -f memory_dump.img linux_cpuinfo
+vol.py -f memory_dump.img linux_pslist
+vol.py -f memory_dump.img linux_pstree
+vol.py -f memory_dump.img linux_netstat
+vol.py -f memory_dump.img linux_ifconfig
+vol.py -f memory_dump.img linux_list_raw
+vol.py -f memory_dump.img linux_arp
+vol.py -f memory_dump.img linux_procdump -p 1342 --dump-dir .
+vol.py -f memory_dump.img linux_dmesg 
+
+vol.py -f memory_dump.mem imageinfo
+vol.py -f memory_dump.mem --profile=Win10x64_10240_17770 envars
+vol.py -f memory_dump.mem --profile=Win10x64_10240_17770 getsids
+vol.py -f memory_dump.mem --profile=Win10x64_10240_17770 pslist-p 2052
+vol.py -f memory_dump.mem --profile=Win10x64_10240_17770 dlllist -p 5092
+vol.py -f memory_dump.mem --profile=Win10x64_10240_17770 cmdline -p 5908
+vol.py -f memory_dump.mem --profile=Win10x64_10240_17770 netscan
+
+vol.py -f memory_dump.mem --profile=Win81U1x64 consoles
+vol.py -f memory_dump.mem --profile=Win81U1x64 handles -p 680
+vol.py -f memory_dump.mem --profile=Win81U1x64 handles -p 680 -t mutant
+
+vol.py -f memory_dump.mem --profile=Win10x64_10240_17770 hivelist
+vol.py -f memory_dump.mem --profile=Win10x64_10240_17770 privs -p 1064
+vol.py -f memory_dump.mem --profile=Win10x64_10240_17770 procdump -p 1260 --dump-dir .
+vol.py -f memory_dump.mem --profile=Win10x64_10240_17770 modules
+
+vol.py -f memory_dump.mem --profile=Win81U1x64 memdump -p 3532 --dump-dir .
+vol.py -f memory_dump.mem --profile=Win81U1x64 lsadump
+echo "QlHLOtEYzgYRsRLLWh4ujMcM9h2Fw/54Hmkyueu2w2A=" | openssl enc -base64 -d -aes-256-cbc -nosalt -pass pass:Passw0rd!
+
+vol.py -f memory_dump.img linux_threads -p 644 
+vol.py -f memory_dump.img linux_bash
+vol.py -f memory_dump.img linux_mount
