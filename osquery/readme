@@ -18,3 +18,6 @@ select proc.name,count(file.pid) from process_open_files as file join processes 
 select proc.name,proc.uid,file.path from process_open_files as file join processes as proc where file.fd = 0 and proc.uid = 0 and file.pid = proc.pid;
 select proc.name,envs.key,envs.value from process_envs as envs join processes as proc where envs.key = 'READ_FILE' and envs.pid = proc.pid;
 
+select * from listening_ports;
+select * from logged_in_users where type='user';
+select * from processes join logged_in_users using (pid);
