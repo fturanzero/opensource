@@ -1,0 +1,3 @@
+aa-status
+aa-enforce /etc/apparmor.d/bin.ping
+nano /etc/apparmor.d/bin.ping
