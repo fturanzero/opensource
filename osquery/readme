@@ -21,3 +21,5 @@ select proc.name,envs.key,envs.value from process_envs as envs join processes as
 select * from listening_ports;
 select * from logged_in_users where type='user';
 select * from processes join logged_in_users using (pid);
+select * from users join user_ssh_keys using (uid);
+
