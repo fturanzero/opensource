@@ -28,3 +28,10 @@ sudo /etc/init.d/nginx restart
 sudo aa-logprof
 sudo aa-enforce usr.sbin.nginx
 sudo aa-logprof
+sudo aa-autodep php-fpm7.2
+sudo cat usr.sbin.php-fpm7.2
+sudo aa-complain usr.sbin.php-fpm7.2
+sudo /etc/init.d/php7.2-fpm restart
+sudo aa-logprof
+sudo cat usr.sbin.php-fpm7.2
+
