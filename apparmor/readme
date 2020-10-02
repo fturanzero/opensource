@@ -1,3 +1,4 @@
 aa-status
 aa-enforce /etc/apparmor.d/bin.ping
 nano /etc/apparmor.d/bin.ping
+sudo apparmor_parser -r /etc/apparmor.d/bin.ping
