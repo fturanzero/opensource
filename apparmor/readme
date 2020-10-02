@@ -9,3 +9,7 @@ sudo tail -f /var/log/audit/audit.log | grep apparmor
 sudo cat /etc/apparmor.d/bin.rcat
 sudo apparmor_parser -R /etc/apparmor.d/bin.rcat
 sudo aa-complain /etc/apparmor.d/bin.rcat
+
+sudo aa-easyprof /bin/rcat > bin.rcat
+sudo mv bin.rcat /etc/apparmor.d/
+sudo apparmor_parser -a /etc/apparmor.d/bin.rcat
