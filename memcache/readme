@@ -1,1 +1,19 @@
+nc 127.0.0.1 11211 -v
+telnet 127.0.0.1 11211
 
+version
+get name
+get password
+stats items
+get id
+incr id 1
+add phone 0 0 9
+123454321
+replace nick 0 0 2
+ed
+prepend address 0 0 6
+house
+append address 0 0 6
+,​73301
+delete old_address
+flush_all 30
