@@ -1,0 +1,35 @@
+# Last Modified: Fri Oct  2 18:43:01 2020
+#include <tunables/global>
+
+/usr/sbin/nginx {
+  #include <abstractions/base>
+
+  capability dac_override,
+  capability net_bind_service,
+  capability setgid,
+  capability setuid,
+
+  network inet stream,
+  network inet6 stream,
+
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /usr/sbin/nginx mr,
+  /var/log/**.log w,
+  owner /**.conf r,
+  owner /etc/group r,
+  owner /etc/nginx/conf.d/ r,
+  owner /etc/nginx/mime.types r,
+  owner /etc/nginx/modules-enabled/ r,
+  owner /etc/nginx/sites-available/default r,
+  owner /etc/nginx/sites-enabled/ r,
+  owner /etc/passwd r,
+  owner /etc/ssl/openssl.cnf r,
+  owner /run/nginx.pid rw,
+  owner /run/php/php7.2-fpm.sock rw,
+  owner /usr/lib/nginx/modules/ngx_http_geoip_module.so mr,
+  owner /usr/lib/nginx/modules/ngx_http_image_filter_module.so mr,
+  owner /usr/lib/nginx/modules/ngx_http_xslt_filter_module.so mr,
+  owner /usr/lib/nginx/modules/ngx_mail_module.so mr,
+  owner /usr/lib/nginx/modules/ngx_stream_module.so mr,
+
+}
