@@ -1,0 +1,17 @@
+# Last Modified: Fri Oct  2 17:55:34 2020
+#include <tunables/global>
+
+# vim:syntax=apparmor
+# AppArmor policy for rcat
+# ###AUTHOR###
+# ###COPYRIGHT###
+# ###COMMENT###
+# No template variables specified
+
+
+/bin/rcat {
+  #include <abstractions/base>
+
+  /etc/passwd r,
+
+}
