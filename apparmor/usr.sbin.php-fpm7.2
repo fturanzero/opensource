@@ -1,0 +1,31 @@
+# Last Modified: Fri Oct  2 19:17:43 2020
+#include <tunables/global>
+
+/usr/sbin/php-fpm7.2 flags=(complain) {
+  #include <abstractions/base>
+
+  deny capability chown,
+  deny capability dac_override,
+  deny capability setgid,
+
+  capability net_admin,
+
+  /bin/dash mrix,
+  /lib/x86_64-linux-gnu/ld-*.so mr,
+  /usr/sbin/php-fpm7.2 mr,
+  /var/www/html/* r,
+  owner /etc/group r,
+  owner /etc/nsswitch.conf r,
+  owner /etc/passwd r,
+  owner /etc/php/** r,
+  owner /etc/php/7.2/fpm/* r,
+  owner /etc/php/7.2/fpm/*/ r,
+  owner /etc/ssl/* r,
+  owner /run/php/* w,
+  owner /run/php/php7.2-fpm.sock rw,
+  owner /run/systemd/notify w,
+  owner /tmp/.ZendSem.2udZjt rwk,
+  owner /var/log/php7.2-fpm.log w,
+  owner /{usr/,}lib{,32,64}/** mr,
+
+}
