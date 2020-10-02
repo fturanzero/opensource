@@ -13,3 +13,8 @@ sudo aa-complain /etc/apparmor.d/bin.rcat
 sudo aa-easyprof /bin/rcat > bin.rcat
 sudo mv bin.rcat /etc/apparmor.d/
 sudo apparmor_parser -a /etc/apparmor.d/bin.rcat
+sudo tail -f /var/log/audit/audit.log | grep apparmor
+rcat /etc/passwd
+sudo aa-notify -s 1 -v
+sudo cat /etc/apparmor.d/bin.rcat
+rcat /etc/passwd
