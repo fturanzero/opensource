@@ -25,3 +25,5 @@ select * from users join user_ssh_keys using (uid);
 
 select protocol,local_port,proc.name,proc.path from process_open_sockets as sock join processes as proc where sock.protocol=17 and sock.pid = proc.pid;
 select distinct p.name,q.local_port,p.path from (select distinct a.name,a.pid,a.path from processes as a join processes as b where a.parent=b.pid and a.parent!=1 ) as p join process_open_sockets as q where p.pid=q.pid;
+
+select * from hash where path='/root/updater';
