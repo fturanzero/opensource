@@ -1,7 +1,7 @@
-# Last Modified: Fri Oct  2 19:17:43 2020
+# Last Modified: Fri Oct  2 19:29:50 2020
 #include <tunables/global>
 
-/usr/sbin/php-fpm7.2 flags=(complain) {
+/usr/sbin/php-fpm7.2 {
   #include <abstractions/base>
 
   deny capability chown,
@@ -11,12 +11,16 @@
   capability net_admin,
 
   /bin/dash mrix,
+  /bin/date mrix,
+  /bin/ls mrix,
+  /etc/group r,
+  /etc/nsswitch.conf r,
+  /etc/passwd r,
   /lib/x86_64-linux-gnu/ld-*.so mr,
+  /usr/bin/id mrix,
   /usr/sbin/php-fpm7.2 mr,
+  /var/www/html/ r,
   /var/www/html/* r,
-  owner /etc/group r,
-  owner /etc/nsswitch.conf r,
-  owner /etc/passwd r,
   owner /etc/php/** r,
   owner /etc/php/7.2/fpm/* r,
   owner /etc/php/7.2/fpm/*/ r,
