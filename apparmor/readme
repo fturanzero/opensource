@@ -1,5 +1,5 @@
-aa-status
-aa-enforce /etc/apparmor.d/bin.ping
+sudo aa-status
+sudo aa-enforce /etc/apparmor.d/bin.ping
 nano /etc/apparmor.d/bin.ping
 sudo apparmor_parser -r /etc/apparmor.d/bin.ping
 
@@ -18,3 +18,13 @@ rcat /etc/passwd
 sudo aa-notify -s 1 -v
 sudo cat /etc/apparmor.d/bin.rcat
 rcat /etc/passwd
+
+sudo aa-unconfined --paranoid
+cd /etc/apparmor.d
+sudo aa-autodep nginx
+sudo cat usr.sbin.nginx
+sudo aa-complain usr.sbin.nginx
+sudo /etc/init.d/nginx restart
+sudo aa-logprof
+sudo aa-enforce usr.sbin.nginx
+sudo aa-logprof
