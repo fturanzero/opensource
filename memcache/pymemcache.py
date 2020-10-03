@@ -9,7 +9,7 @@ client.stats()['curr_items']
 
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
-pp.pprint(client.stats("cachedump","1","100"))
+pp.pprint(client.stats("cachedump","1","0"))
 
 def retrieve(key):
   result = client.get_multi(['%s-%s' % (key, i) for i in xrange(12)])
