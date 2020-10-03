@@ -1,1 +1,3 @@
 curl -I http://192.75.147.3/dir
+curl -u bob:qwerty 192.75.147.3/dir -L
+curl --digest -u alice:password1 http://192.75.147.3/poc/
