@@ -1,0 +1,24 @@
+ports=$(nmap -PN -p- --min-rate=1000 -T4 10.0.0.1 | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//)
+nmap -PN -sC -sV -p$ports 10.0.0.1
+
+nmap -Pn -sV -sC -sU -sT -T4 -p- -oA result -iL ips.txt -v
+nmap -T4 -A -p- <ip> -oA result
+
+nmap -PN -p- -T4 -iL ips.txt -v -o basicScan
+ports=$(cat basicScan | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//)
+nmap -PN -sC -sV -p$ports -iL ips.txt -v -o advancedScan
+
+nmap -PN -sU -iL ips.txt -v -o udpBasicScan
+ports=$(cat udpBasicScan | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//)
+nmap -PN -sC -sV -sU -p$ports -iL ips.txt -v -o udpAdvancedScan
+
+nmap -p 445 -script=smb-vuln-ms17-010.nse 10.10.130.147 -v
+nmap -p 445 -script=smb-vuln* –script-args=unsafe=1 10.10.130.147 -v
+
+nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount 10.10.76.74
+
+nmap -Pn — host-timeout 100 — max-retries 0 -p 1 172.16.186.208
+
+nmap -p 11211 --script memcached-info 192.207.161.3
+
+nmap -sV -script banner 192.86.38.3
