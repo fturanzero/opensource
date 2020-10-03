@@ -1,3 +1,4 @@
 curl -I http://192.75.147.3/dir
 curl -u bob:qwerty 192.75.147.3/dir -L
 curl --digest -u alice:password1 http://192.75.147.3/poc/
+cat directory.txt | while read f; do res=$(curl http://192.126.127.3$f -I -s | grep HTTP | grep -v 404 | awk '{print $2}'); [ -z $res ] || echo $res" "$f; done
