@@ -1,0 +1,3 @@
+use flag
+show collections
+db.flag.find()
