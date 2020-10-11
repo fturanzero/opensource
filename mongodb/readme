@@ -1,3 +1,7 @@
 use flag
 show collections
 db.flag.find()
+
+db.past.count()
+
+db.city.find({"pop":{$gt:15000}}).count()
