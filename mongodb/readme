@@ -4,4 +4,11 @@ db.flag.find()
 
 db.past.count()
 
-db.city.find({"pop":{$gt:15000},"state":"IN"}).count()
+db.city.find({"pop":{$gt:15000},"state":"IN"}).count(),
+db.city.find({$and:[{pop:{$gt:15000}},{"state":"IN"}]}).count()
+
+db.city.find({"city":{$regex:"^AN.*"}})
+
+db.city.find().sort({"city":1}).skip(100).limit(1)
+
+db.city.aggregate({"$group":{"_id":null,avg:{$avg:"$pop"}}})
