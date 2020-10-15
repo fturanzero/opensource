@@ -1,0 +1,3 @@
+curl -q -X GET http://guest:guest@192.10.249.3:15672/api/overview | python -m json.tool
+curl -q -X GET http://guest:guest@192.10.249.3:15672/api/queues
+amqp-consume --url amqp://guest:guest@192.10.249.3 -q sensors ./get.sh
