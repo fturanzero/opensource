@@ -22,3 +22,5 @@ nmap -Pn — host-timeout 100 — max-retries 0 -p 1 172.16.186.208
 nmap -p 11211 --script memcached-info 192.207.161.3
 
 nmap -sV -script banner 192.86.38.3
+
+nmap 192.10.249.3 -p 5672 --script amqp-info
