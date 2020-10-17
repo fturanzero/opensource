@@ -13,3 +13,4 @@ GRANT ALL PRIVILEGES ON DATABASE mattermost to mmuser;
 
 /var/lib/pgsql/data/pg_hba.conf
 systemctl restart postgresql
+
