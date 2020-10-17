@@ -1,0 +1,4 @@
+import pylibmc
+mc = pylibmc.Client(["192.112.3.3"],username="admin",password="adm1nS3r3tPass",binary=True)
+mc["username"]
+mc["password"]
