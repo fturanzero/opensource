@@ -1,0 +1,13 @@
+psql -h 192.137.129.3 -U postgres
+
+\l
+\c flag
+\d
+select * from flag;
+\du
+
+create user test with password 'password';
+\du
+alter user test with superuser;
+
+psql -h 192.4.225.3 -U test flag
