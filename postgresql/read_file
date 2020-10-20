@@ -1,0 +1,4 @@
+create table demo(t text);
+copy demo from '/var/lib/postgresql/9.4/key.txt';
+select * from demo;
+drop table demo;
